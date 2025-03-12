@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
@@ -8,6 +8,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,8 +30,8 @@ const Header = () => {
 
   const navItems = [
     "About",
-    "Schedule",
     "Themes",
+    "Schedule",
     // "Speakers",
     // "Sponsors",
     "Previous Hackathon",
@@ -44,7 +45,17 @@ const Header = () => {
     e.preventDefault();
     const element = document.getElementById(item.toLowerCase());
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Get header height to adjust scroll position
+      const headerHeight = headerRef.current?.offsetHeight || 0;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerHeight;
+
+      // Smooth scroll with offset
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
     // Close mobile menu after click
     setMenuOpen(false);
@@ -178,6 +189,7 @@ const Header = () => {
       />
 
       <motion.header
+        ref={headerRef}
         className={`fixed w-full z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-hackathon-dark-blue/80 backdrop-blur-md"
