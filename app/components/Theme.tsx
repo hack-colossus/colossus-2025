@@ -70,7 +70,7 @@ const Theme = () => {
     },
   };
 
-  // Floating animation for the stars
+  // Floating animation for the decorative stars
   const floatingAnimation = {
     animate: {
       y: [0, -10, 0],
@@ -82,19 +82,22 @@ const Theme = () => {
     },
   };
 
-  // Updated theme data based on the image plus Open Innovation
+  // Updated theme data with new hackathon tracks and appropriate icons
   const themes = [
     {
-      title: "ROBOTICS",
+      title: "HEALTHTECH",
       description:
-        "Build innovative robotic solutions using hardware and software integration to solve real-world challenges in automation and interaction.",
+        "Focuses on integrating advanced technologies with healthcare to improve patient care, diagnostics, medical management, and overall accessibility of health services.",
       icon: (
         <svg
           viewBox="0 0 24 24"
           className="w-12 h-12 text-hackathon-light-pink"
         >
           <motion.path
-            d="M7,3H17V5H19V8H16.5L13,12H11L7.5,8H5V5H7V3M5,9H7.5L11,13H13L16.5,9H19V21H5V9Z"
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+               2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 
+               14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 
+               11.54L12 21.35z"
             fill="currentColor"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
@@ -104,16 +107,16 @@ const Theme = () => {
       ),
     },
     {
-      title: "IOT",
+      title: "AGRITECH",
       description:
-        "Create connected device ecosystems that gather, analyze, and act on data to enable smart environments and automated decision-making systems.",
+        "Aims to revolutionize agriculture by leveraging technology to enhance productivity, optimize resource usage, ensure food security, and create sustainable farming practices.",
       icon: (
         <svg
           viewBox="0 0 24 24"
           className="w-12 h-12 text-hackathon-light-pink"
         >
           <motion.path
-            d="M16.6,5.82L15.54,6.95L16.88,8.29L15.47,9.71L13.41,7.65L16.61,4.46C16.07,4.36 15.5,4.44 15,4.72C13.67,5.41 13.25,7.08 13.94,8.41C14,8.54 14.07,8.67 14.16,8.78L5.71,17.22C5.03,17.9 5.03,19 5.71,19.68C6.39,20.36 7.5,20.36 8.18,19.68L16.61,11.25C16.73,11.34 16.86,11.41 16.99,11.47C18.32,12.15 19.99,11.74 20.68,10.4C20.96,9.9 21.04,9.33 20.94,8.79L17.74,11.98L15.68,9.92L17.09,8.5L18.43,9.84L19.56,8.78L16.6,5.82M11.12,10.24L13.11,12.23L8.35,16.98L6.36,15L11.12,10.24M7.06,16.28L9.05,18.27L8.84,18.48C8.54,18.78 8.05,18.78 7.76,18.48C7.46,18.19 7.46,17.7 7.76,17.4L7.06,16.28Z"
+            d="M12 2C8.13 2 5 5.13 5 9c0 4.84 7 13 7 13s7-8.16 7-13c0-3.87-3.13-7-7-7z"
             fill="currentColor"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
@@ -123,16 +126,18 @@ const Theme = () => {
       ),
     },
     {
-      title: "AI & ML",
+      title: "FINTECH",
       description:
-        "Develop intelligent applications using artificial intelligence and machine learning to process data, recognize patterns, and provide meaningful insights.",
+        "Drives innovation in financial services by utilizing technology to enhance security, accessibility, efficiency, and transparency in banking, payments, investments, and economic management.",
       icon: (
         <svg
           viewBox="0 0 24 24"
           className="w-12 h-12 text-hackathon-light-pink"
         >
           <motion.path
-            d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z M19,7C18.4,7 18,6.6 18,6C18,5.4 18.4,5 19,5C19.6,5 20,5.4 20,6C20,6.6 19.6,7 19,7M15,7C14.4,7 14,6.6 14,6C14,5.4 14.4,5 15,5C15.6,5 16,5.4 16,6C16,6.6 15.6,7 15,7M7,8C5.9,8 5,7.1 5,6C5,4.9 5.9,4 7,4C8.1,4 9,4.9 9,6C9,7.1 8.1,8 7,8Z"
+            d="M12 1C5.92 1 1 5.92 1 12s4.92 11 11 11 11-4.92 11-11S18.08 1 
+               12 1zm1 17.93V19h-2v-.07C7.06 16.9 5 14.12 5 12c0-2.12 2.06-4.9 
+               6-5.93V5h2v1.07c3.94 1.03 6 3.81 6 5.93 0 2.12-2.06 4.9-6 5.93z"
             fill="currentColor"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
@@ -142,16 +147,19 @@ const Theme = () => {
       ),
     },
     {
-      title: "BLOCKCHAIN",
+      title: "ROBOTICS/IoT",
       description:
-        "Build decentralized applications using blockchain technology to create secure, transparent, and immutable systems for finance, supply chain, and beyond.",
+        "Explores automation, smart systems, and connected devices to improve efficiency, accuracy, and decision-making in various industries, enabling intelligent and autonomous operations.",
       icon: (
         <svg
           viewBox="0 0 24 24"
           className="w-12 h-12 text-hackathon-light-pink"
         >
           <motion.path
-            d="M12,1L21,5V11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1M12,3.18L5,6.3V11.22C5,15.54 8.25,19.82 12,20.82C15.75,19.82 19,15.54 19,11.22V6.3L12,3.18M11,14H13V16H11V14M11,10H13V13H11V10M11,7H13V9H11V7Z"
+            d="M9 2H15V4H19C20.11 4 21 4.89 21 6V10C21 11.11 20.11 12 19 
+               12H17V19C17 20.11 16.11 21 15 21H9C7.89 21 7 20.11 7 19V12H5C3.89 
+               12 3 11.11 3 10V6C3 4.89 3.89 4 5 4H9V2M9 6V8H11V6H9M13 6V8H15V6H13M9 
+               10H15V19H9V10Z"
             fill="currentColor"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
@@ -161,16 +169,39 @@ const Theme = () => {
       ),
     },
     {
-      title: "OPEN INNOVATION",
+      title: "SUSTAINABILITY",
       description:
-        "Collaborate across disciplines to create novel solutions to complex problems through shared knowledge, diverse perspectives, and community-driven approaches.",
+        "Focuses on developing eco-friendly technologies and strategies that promote environmental conservation, renewable energy, waste reduction, and long-term resilience.",
       icon: (
         <svg
           viewBox="0 0 24 24"
           className="w-12 h-12 text-hackathon-light-pink"
         >
           <motion.path
-            d="M12,6C13.11,6 14,6.9 14,8C14,9.11 13.11,10 12,10C10.89,10 10,9.11 10,8C10,6.9 10.89,6 12,6M17,5C17.56,5 18,5.45 18,6C18,6.56 17.56,7 17,7C16.44,7 16,6.56 16,6C16,5.45 16.44,5 17,5M7,5C7.56,5 8,5.45 8,6C8,6.56 7.56,7 7,7C6.44,7 6,6.56 6,6C6,5.45 6.44,5 7,5M19,12C20.1,12 21,12.9 21,14C21,15.1 20.1,16 19,16C17.9,16 17,15.1 17,14C17,12.9 17.9,12 19,12M5,12C6.1,12 7,12.9 7,14C7,15.1 6.1,16 5,16C3.9,16 3,15.1 3,14C3,12.9 3.9,12 5,12M12,16C13.11,16 14,16.9 14,18C14,19.11 13.11,20 12,20C10.89,20 10,19.11 10,18C10,16.9 10.89,16 12,16M12,8C12,8 16,10.37 16,13.75C16,14.83 15.33,15.67 14.33,15.94C14.16,13.77 13.16,11.31 12,10.25C10.84,11.31 9.84,13.77 9.67,15.94C8.67,15.67 8,14.83 8,13.75C8,10.37 12,8 12,8Z"
+            d="M12 4V2M12 22v-2M4.22 4.22l-1.42-1.42M19.78 19.78l-1.42-1.42M2 
+               12H4M20 12h2M4.22 19.78l-1.42 1.42M19.78 4.22l-1.42 1.42M12 8a4 4 0 
+               100 8 4 4 0 000-8z"
+            stroke="currentColor"
+            strokeWidth="2"
+            fill="none"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          />
+        </svg>
+      ),
+    },
+    {
+      title: "EDUTECH",
+      description:
+        "Enhances education through technology-driven solutions that improve learning experiences, accessibility, personalization, and engagement in knowledge acquisition.",
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          className="w-12 h-12 text-hackathon-light-pink"
+        >
+          <motion.path
+            d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM11 12.14L4.84 9.24 11 6.34l6.16 2.9L11 12.14zM11 14.86l7.16-3.09L11 8.68v6.18z"
             fill="currentColor"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
@@ -240,7 +271,7 @@ const Theme = () => {
           </motion.span>
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {themes.map((theme, index) => (
             <motion.div
               key={index}
