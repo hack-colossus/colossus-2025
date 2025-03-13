@@ -102,7 +102,7 @@ const faqData = [
   },
   {
     question: "Is there a fee to participate?",
-    answer: "No, Colossus 2025 is completely free!",
+    answer: "Yes!, 200 per person.",
   },
 ];
 

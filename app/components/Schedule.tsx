@@ -62,7 +62,7 @@ const timelineData: TimelineEntry[] = [
     description: "Start your day with a hearty breakfast.",
   },
   {
-    time: "9:00 PM",
+    time: "9:00 AM",
     event: "Final Round",
     description: "Showcase your final projects and celebrate with awards.",
   },
