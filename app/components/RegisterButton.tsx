@@ -26,7 +26,7 @@ const RegisterButton = () => {
           great prizes!
         </motion.p>
         <motion.a
-          href="https://unstop.com/hackathons/colossus-2025"
+          href="https://pages.razorpay.com/colossus2025"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-hackathon-darker-blue text-hackathon-light-pink px-6 sm:px-8 py-2 sm:py-3 rounded-full text-sm font-jetbrains hover:bg-hackathon-lavender transition-all duration-300 border-2 border-hackathon-light-pink hover:text-black"

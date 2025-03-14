@@ -344,7 +344,7 @@ const Hero: React.FC = () => {
         >
           {!isEventPassed && (
             <motion.a
-              href="https://unstop.com/hackathons/colossus-2025"
+              href="https://pages.razorpay.com/colossus2025"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-hackathon-purple text-hackathon-light-pink px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-hackathon-lavender transition-all duration-300 font-jetbrains"
