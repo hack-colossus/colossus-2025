@@ -7,6 +7,7 @@ import PreviousHackathon from "./components/PreviousHackathon"
 import FAQ from "./components/FAQ"
 import RegisterButton from "./components/RegisterButton"
 import Theme from "./components/Theme"
+import TestimonialCarousel from "./components/Testimonials"
 // import Colosseum from "./components/Colosseum"
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       {/* <Speakers /> */}
       {/* <Sponsors /> */}
       <PreviousHackathon />
+      <TestimonialCarousel />
       <RegisterButton />
       <FAQ />
     </>
