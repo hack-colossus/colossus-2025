@@ -28,6 +28,22 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Scroll to the stored section after navigation
+    if (typeof window !== "undefined") {
+      const sectionId = sessionStorage.getItem("scrollToSection");
+      if (sectionId) {
+        sessionStorage.removeItem("scrollToSection"); // Clean up after use
+        setTimeout(() => {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 500); // Adjust delay if necessary
+      }
+    }
+  }, []);
+
   const navItems = [
     "About",
     "Themes",
@@ -249,9 +265,18 @@ const Header = () => {
                 whileHover="hover"
               >
                 <Link
-                  href={`#${item.toLowerCase()}`}
+                  href="/"
                   className="text-lg font-jetbrains text-hackathon-beige hover:text-hackathon-lavender transition-colors duration-300 relative"
-                  onClick={(e) => handleNavItemClick(e, item)}
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default behavior
+                    if (typeof window !== "undefined") {
+                      sessionStorage.setItem(
+                        "scrollToSection",
+                        item.toLowerCase()
+                      );
+                      window.location.href = "/"; // Navigate without useRouter
+                    }
+                  }}
                 >
                   {item}
                   <motion.span
