@@ -25,7 +25,7 @@ export default function ReferencePPT() {
         </p>
 
         <a
-          href="https://www.canva.com/design/DAGhsFQCGqM/PnUljqQulKZI2Efd5LLfoQ/edit?utm_content=DAGhsFQCGqM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" // <-- REPLACE WITH ACTUAL PPT LINK
+          href="https://www.canva.com/design/DAGhsgbUEbE/ntmnhZJCQS2fZ8XQp4cYeA/edit?utm_content=DAGhsgbUEbE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" // <-- REPLACE WITH ACTUAL PPT LINK
           className="bg-hackathon-purple text-hackathon-dark hover:bg-hackathon-lavender px-6 py-3 text-lg font-press-start rounded-lg transition-colors duration-300 inline-block"
           download
         >
@@ -37,14 +37,14 @@ export default function ReferencePPT() {
         <h2 className="text-2xl font-press-start text-hackathon-light-pink mb-4">
           📌 What's Inside?
         </h2>
-        <ul className="font-jetbrains list-disc list-inside">
+        <ul className="text-sm sm:text-base font-jetbrains list-disc list-inside">
           <li>✅ Project Title & Team Details</li>
           <li>✅ Brief About the Idea</li>
-          <li>✅ What problem DOES your project aims to solve?</li>
-          <li>✅ How different is it from any of the other existing ideas?</li>
+          <li>✅ What problem does your project aim to solve?</li>
+          <li>✅ Key Features</li>
           <li>✅ Technologies Used</li>
           <li>✅ Architecture Diagram</li>
-          <li>✅ Impact & Feasibility</li>
+          <li>✅ Team Members Details</li>
         </ul>
       </section>
 
