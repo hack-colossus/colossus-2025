@@ -3,8 +3,6 @@
 import {
   motion,
   useMotionValue,
-  useTransform,
-  useSpring,
   Variants,
 } from "framer-motion";
 import { useRef, useEffect, useState, useMemo } from "react";
@@ -44,7 +42,7 @@ const Hero: React.FC = () => {
   const [isEventPassed, setIsEventPassed] = useState<boolean>(false);
 
   // Target date: April 5, 2025, 12:00 PM
-  const targetDate = new Date("2025-04-05T12:00:00");
+  const targetDate = useMemo(() => new Date("2025-04-05T12:00:00"), []);
 
   // Update countdown timer
   useEffect(() => {
@@ -97,13 +95,7 @@ const Hero: React.FC = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Logo tilt effect based on mouse position - only for desktop
-  const rotateX = useTransform(mouseY, [-300, 300], [15, -15]);
-  const rotateY = useTransform(mouseX, [-300, 300], [-15, 15]);
 
-  // Smooth spring effect for rotation with reduced stiffness
-  const springRotateX = useSpring(rotateX, { stiffness: 50, damping: 30 });
-  const springRotateY = useSpring(rotateY, { stiffness: 50, damping: 30 });
 
   // Track mouse movement - only for desktop and reduced sensitivity
   const handleMouseMove = (

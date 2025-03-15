@@ -16,25 +16,10 @@ export const metadata = {
   icons: {
     icon: "/images/favicon.ico",
   },
-  openGraph: {
-    title: "Colossus 2.O | Retro-Themed Space Hackathon",
-    description: "Join us for an exciting retro-themed space hackathon event!",
-    images: [
-      {
-        url: "/images/og-image.jpg", // Create and add a shareable image
-        width: 1200,
-        height: 630,
-        alt: "Colossus 2.O Hackathon",
-      },
-    ],
-    type: "website",
-    locale: "en_US",
-  },
   twitter: {
     card: "summary_large_image",
     title: "Colossus 2.O | Retro-Themed Space Hackathon",
     description: "Join us for an exciting retro-themed space hackathon event!",
-    images: ["/images/twitter-image.jpg"],
   },
 };
 
