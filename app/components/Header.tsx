@@ -54,28 +54,7 @@ const Header = () => {
     "FAQ",
   ];
 
-  const handleNavItemClick = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    item: string
-  ) => {
-    e.preventDefault();
-    const element = document.getElementById(item.toLowerCase());
-    if (element) {
-      // Get header height to adjust scroll position
-      const headerHeight = headerRef.current?.offsetHeight || 0;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerHeight;
-
-      // Smooth scroll with offset
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-    // Close mobile menu after click
-    setMenuOpen(false);
-  };
+  
 
   // Logo animation variants with letter animation
   const logoVariants = {
@@ -430,9 +409,18 @@ const Header = () => {
                     className="text-xs border-b border-hackathon-lavender/20 pb-3 font-jetbrains"
                   >
                     <Link
-                      href={`#${item.toLowerCase()}`}
-                      className="block text-xl font-medium text-hackathon-beige hover:text-hackathon-lavender transition-all duration-300"
-                      onClick={(e) => handleNavItemClick(e, item)}
+                      href="/"
+                      className="text-lg font-jetbrains text-hackathon-beige hover:text-hackathon-lavender transition-colors duration-300 relative"
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent default behavior
+                        if (typeof window !== "undefined") {
+                          sessionStorage.setItem(
+                            "scrollToSection",
+                            item.toLowerCase()
+                          );
+                          window.location.href = "/"; // Navigate without useRouter
+                        }
+                      }}
                     >
                       <motion.span className="inline-block">{item}</motion.span>
                       <motion.div
