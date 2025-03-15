@@ -95,8 +95,6 @@ const Hero: React.FC = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-
-
   // Track mouse movement - only for desktop and reduced sensitivity
   const handleMouseMove = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
