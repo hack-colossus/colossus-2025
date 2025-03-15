@@ -10,6 +10,9 @@ const vt323 = VT323({ weight: "400", subsets: ["latin"] });
 export const metadata = {
   title: "Colossus 2.O",
   description: "Join us for an exciting retro-themed space hackathon event!",
+  icons: {
+    icon: "/images/favicon.ico",
+  },
 };
 
 export default function RootLayout({
