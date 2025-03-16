@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CustomScrollbar from "./components/CustomScrollbar";
 import type React from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 const vt323 = VT323({ weight: "400", subsets: ["latin"] });
 
@@ -63,7 +64,10 @@ export default function RootLayout({
       >
         <CustomScrollbar />
         <Header />
-        <main>{children}</main>
+        <main>
+          {children}
+          <Analytics />
+        </main>
         <Footer />
       </body>
     </html>
