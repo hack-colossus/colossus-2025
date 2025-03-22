@@ -167,6 +167,10 @@ const Hero: React.FC = () => {
     return unit.toString().padStart(2, "0");
   };
 
+  // Announcement text for scrolling banner
+  const announcementText =
+    "EVENT: April 11-12, 2025 • LAST DATE TO REGISTER: April 5, 2025 • RESULTS: April 6, 2025 • ";
+
   return (
     <section
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-hackathon-dark-blue to-hackathon-darker-blue relative overflow-hidden py-16"
@@ -355,6 +359,36 @@ const Hero: React.FC = () => {
             ))}
           </motion.div>
         )}
+
+        {/* Scrolling Announcement Banner */}
+        <motion.div
+          className="mt-8 w-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1.2 }}
+        >
+          <div className="bg-hackathon-darker-blue border-t border-b border-hackathon-light-pink py-2 overflow-hidden">
+            <motion.div
+              className="whitespace-nowrap font-jetbrains text-hackathon-beige flex items-center"
+              animate={{
+                x: [0, -1000], // Adjust based on text length
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20,
+                  ease: "linear",
+                },
+              }}
+            >
+              {/* Repeat the text to create continuous scrolling effect */}
+              <span className="mr-8">{announcementText}</span>
+              <span className="mr-8">{announcementText}</span>
+              <span className="mr-8">{announcementText}</span>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
 
       {/* Reduced decorative elements - less on mobile */}

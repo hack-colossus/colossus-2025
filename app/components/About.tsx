@@ -256,13 +256,14 @@ const About = () => {
               </h3>
             </div>
             <p className="text-base sm:text-lg text-hackathon-beige font-jetbrains relative z-10">
-              Colossus 2025 is a 24-hour hackathon where people from different
-              backgrounds come together to build innovative tech projects. It's
-              a chance for developers, designers, and creative thinkers to
-              learn, collaborate, and create something new. Organized by the
-              technical club at Dr. Ambedkar Institute of Technology, Bengaluru,
-              in collaboration with Nanogram Hub and the Google Developers
-              Student Club.
+              Colossus 2025 is an electrifying 24-hour hackathon hosted by the
+              Dr. AIT Technical Club, Dr. Ambedkar Institute of Technology,
+              Bengaluru. Happening offline on April 11th and 12th, 2025, this
+              dynamic event brings together college students from diverse
+              backgrounds to collaborate, innovate, and develop groundbreaking
+              solutions that redefine the future of technology. Join us at
+              Colossus to push the boundaries of innovation, showcase your
+              skills, and be part of a transformative tech experience
             </p>
           </motion.div>
 
