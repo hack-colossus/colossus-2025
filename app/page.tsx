@@ -1,29 +1,27 @@
-import Hero from "./components/Hero"
-import About from "./components/About"
-import Schedule from "./components/Schedule"
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Schedule from "./components/Schedule";
 // import Speakers from "./components/Speakers"
 // import Sponsors from "./components/Sponsors"
-import PreviousHackathon from "./components/PreviousHackathon"
-import FAQ from "./components/FAQ"
-import RegisterButton from "./components/RegisterButton"
-import Theme from "./components/Theme"
-import TestimonialCarousel from "./components/Testimonials"
+import PreviousHackathon from "./components/PreviousHackathon";
+import FAQ from "./components/FAQ";
+import RegisterButton from "./components/RegisterButton";
+import Theme from "./components/Theme";
 // import Colosseum from "./components/Colosseum"
-
+import TechnoExhibition from "./components/TechnoExhibiton";
 export default function Home() {
   return (
     <>
       <Hero />
       <About />
-      <Theme  />
+      <Theme />
+      <TechnoExhibition />
       <Schedule />
       {/* <Speakers /> */}
       {/* <Sponsors /> */}
       <PreviousHackathon />
-      <TestimonialCarousel />
       <RegisterButton />
       <FAQ />
     </>
   );
 }
-

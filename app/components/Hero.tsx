@@ -3,11 +3,11 @@
 import {
   motion,
   useMotionValue,
+  useTransform,
+  useSpring,
   Variants,
 } from "framer-motion";
 import { useRef, useEffect, useState, useMemo } from "react";
-import Image from "next/image";
-import logo from "/public/images/colosseum.png";
 
 // Define interfaces for type safety
 interface TimeLeft {
@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
   const [isEventPassed, setIsEventPassed] = useState<boolean>(false);
 
   // Target date: April 5, 2025, 12:00 PM
-  const targetDate = useMemo(() => new Date("2025-04-05T12:00:00"), []);
+  const targetDate = new Date("2025-04-05T12:00:00");
 
   // Update countdown timer
   useEffect(() => {
@@ -94,6 +94,14 @@ const Hero: React.FC = () => {
 
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  // Logo tilt effect based on mouse position - only for desktop
+  const rotateX = useTransform(mouseY, [-300, 300], [15, -15]);
+  const rotateY = useTransform(mouseX, [-300, 300], [-15, 15]);
+
+  // Smooth spring effect for rotation with reduced stiffness
+  const springRotateX = useSpring(rotateX, { stiffness: 50, damping: 30 });
+  const springRotateY = useSpring(rotateY, { stiffness: 50, damping: 30 });
 
   // Track mouse movement - only for desktop and reduced sensitivity
   const handleMouseMove = (
@@ -152,16 +160,6 @@ const Hero: React.FC = () => {
     },
   };
 
-  // Floating animation for the logo
-  const floatingAnimation = {
-    y: [0, -12, 0],
-    transition: {
-      duration: 5,
-      ease: "easeInOut",
-      repeat: Infinity,
-    },
-  };
-
   // Format time unit to always show two digits
   const formatTimeUnit = (unit: number): string => {
     return unit.toString().padStart(2, "0");
@@ -169,7 +167,7 @@ const Hero: React.FC = () => {
 
   // Announcement text for scrolling banner
   const announcementText =
-    "EVENT: April 11-12, 2025 • LAST DATE TO REGISTER: April 5, 2025 • RESULTS: April 6, 2025 • ";
+    "EVENT: April 11-12, 2025 • LAST DATE TO REGISTER: April 8, 2025 • RESULTS: April 9, 2025 • ";
 
   return (
     <section
@@ -197,9 +195,19 @@ const Hero: React.FC = () => {
 
       {/* Main content */}
       <div className="text-center w-full max-w-5xl mx-auto px-4 relative z-10 flex flex-col items-center">
-        {/* Logo container with floating effect */}
+        {/* Logo container with 3D effect */}
         <motion.div
           className="mb-6 md:mb-8 relative"
+          style={
+            isMobile
+              ? {}
+              : {
+                  rotateX: springRotateX,
+                  rotateY: springRotateY,
+                  transformPerspective: 1000,
+                  willChange: "transform", // Hardware acceleration hint
+                }
+          }
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
@@ -222,23 +230,72 @@ const Hero: React.FC = () => {
             }}
           />
 
-          {/* Logo - Using Next/Image instead of SVG */}
-          <motion.div
-            className="relative"
-            animate={floatingAnimation}
-            style={{ willChange: "transform" }} // Hardware acceleration hint
-          >
-            <div className="relative w-40 h-40 md:w-52 md:h-52">
-              <Image
-                src={logo} // Replace with your actual logo path
-                alt="Colossus 2025 Logo"
-                fill
-                sizes="(max-width: 768px) 160px, 208px"
-                priority
-                className="object-contain"
+          {/* Logo - simplified for mobile */}
+          <div className="relative">
+            <motion.svg
+              width={isMobile ? "150" : "200"}
+              height={isMobile ? "150" : "200"}
+              viewBox="0 0 200 200"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              whileHover={isMobile ? {} : { rotate: 360 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+            >
+              {/* Outer circle */}
+              <circle
+                cx="100"
+                cy="100"
+                r="95"
+                stroke="#E4C1F9"
+                strokeWidth="3"
               />
-            </div>
-          </motion.div>
+
+              {/* Inner circle with glow */}
+              <circle
+                cx="100"
+                cy="100"
+                r="70"
+                fill="#251941"
+                stroke="#A78BFA"
+                strokeWidth="2"
+              />
+
+              {/* C letter for Colossus */}
+              <path
+                d="M70 70C70 70 55 85 55 100C55 115 70 130 70 130"
+                stroke="#FF8FA3"
+                strokeWidth="5"
+                strokeLinecap="round"
+              />
+
+              {/* Simplified circuit paths */}
+              <path
+                d="M100 40C120 50 140 70 140 100C140 130 120 150 100 160"
+                stroke="#A78BFA"
+                strokeWidth="2"
+                strokeDasharray="4 2"
+              />
+
+              <path
+                d="M130 70C130 70 145 85 145 100C145 115 130 130 130 130"
+                stroke="#FF8FA3"
+                strokeWidth="5"
+                strokeLinecap="round"
+              />
+
+              {/* Year 2025 */}
+              <text
+                x="100"
+                y="110"
+                fontFamily="monospace"
+                fontSize="16"
+                fill="#FF8FA3"
+                textAnchor="middle"
+              >
+                2025
+              </text>
+            </motion.svg>
+          </div>
         </motion.div>
 
         {/* Optimized title animation - using two groups instead of per-character animation */}
@@ -291,7 +348,7 @@ const Hero: React.FC = () => {
         >
           {!isEventPassed && (
             <motion.a
-              href="https://pages.razorpay.com/colossus2025"
+              href="https://unstop.com/hackathons/colossus-2025"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-hackathon-purple text-hackathon-light-pink px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-hackathon-lavender transition-all duration-300 font-jetbrains"
@@ -388,6 +445,40 @@ const Hero: React.FC = () => {
               <span className="mr-8">{announcementText}</span>
             </motion.div>
           </div>
+        </motion.div>
+
+        {/* Blinking Notification for PPT Submission Date Update */}
+        {/* Blinking Notification for PPT Submission Date Update - Enhanced for attention */}
+        <motion.div
+          className="mt-4 px-6 py-3 bg-hackathon-purple rounded-lg border-2 border-hackathon-light-pink shadow-lg"
+          animate={{
+            opacity: [1, 0.6, 1],
+            scale: [1, 1.05, 1],
+            boxShadow: [
+              "0 0 0 rgba(255, 143, 163, 0.7)",
+              "0 0 20px rgba(255, 143, 163, 0.9)",
+              "0 0 0 rgba(255, 143, 163, 0.7)",
+            ],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-hackathon-light-pink font-jetbrains font-bold flex items-center justify-center">
+            <span className="inline-block mr-2 text-2xl animate-pulse">⚠️</span>
+            <span className="text-hackathon-beige uppercase mr-2">
+              IMPORTANT:
+            </span>
+            Last date to submit PPT has been extended to
+            <span className="text-hackathon-lavender ml-2 font-extrabold underline">
+              8th April
+            </span>
+          </p>
         </motion.div>
       </div>
 

@@ -1,12 +1,17 @@
 "use client";
 
 import React, { useEffect, useState, CSSProperties } from "react";
-import { motion, AnimatePresence, useMotionValue, MotionValue } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  MotionValue,
+} from "framer-motion";
 import Image from "next/image";
 // Utility to conditionally join classes – you can use your own implementation.
 import { cn } from "@/lib/utils";
 
-/** 
+/**
  * FollowerPointerCard
  * Wraps content to display an interactive pointer (with tooltip) that follows your mouse.
  */
@@ -50,7 +55,7 @@ export const FollowerPointerCard = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{ cursor: "none" }}
-      className={cn("relative", className)}
+      className={cn("relative h-full", className)}
     >
       <AnimatePresence>
         {isInside && <FollowPointer x={x} y={y} title={title} />}
@@ -159,7 +164,7 @@ export const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
         } as CSSProperties
       }
       className={cn(
-        "relative z-10 w-full",
+        "relative z-10 w-full h-full flex flex-col",
         "rounded-[var(--border-radius)]",
         "transition-shadow duration-300",
         "hover:shadow-[0_0_10px_var(--neon-first-color),0_0_30px_var(--neon-first-color)]",
@@ -169,9 +174,9 @@ export const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
     >
       <div
         className={cn(
-          "w-full min-h-[120px]",
+          "w-full h-full flex flex-col",
           "rounded-[calc(var(--border-radius)-var(--border-size))]",
-          "bg-hackathon-dark-blue p-6 sm:p-8",
+          "bg-hackathon-dark-blue p-4 sm:p-6",
           "dark:bg-neutral-900"
         )}
       >
@@ -181,85 +186,248 @@ export const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
   );
 };
 
-// Sample speakers data.
-const speakersData = [
+// Day 1 jury members (random)
+const day1Members = [
   {
-    name: "John Doe",
-    role: "CEO, Tech Innovators",
-    image: "/placeholder.svg",
+    name: "Maya Rodriguez",
+    role: "Jury Member",
+    image: "/jury/maya-rodriguez.jpeg",
   },
   {
-    name: "Jane Smith",
-    role: "CTO, Future Systems",
-    image: "/placeholder.svg",
+    name: "Alex Chen",
+    role: "Jury Member",
+    image: "/jury/alex-chen.jpeg",
   },
   {
-    name: "Mike Johnson",
-    role: "Founder, CodeCraft",
-    image: "/placeholder.svg",
+    name: "Priya Sharma",
+    role: "Jury Member",
+    image: "/jury/priya-sharma.jpeg",
   },
   {
-    name: "Sarah Williams",
-    role: "AI Researcher, DataMinds",
-    image: "/placeholder.svg",
+    name: "David Kim",
+    role: "Jury Member",
+    image: "/jury/david-kim.jpeg",
+  },
+  {
+    name: "Sarah Johnson",
+    role: "Jury Member",
+    image: "/jury/sarah-johnson.jpeg",
+  },
+];
+
+// Day 2 jury members (original ones)
+const day2Members = [
+  {
+    name: "Pallavi Lokesh Shetty",
+    role: "Jury Member",
+    image: "/jury/pallavi-shetty.jpeg",
+  },
+  {
+    name: "Abdulkhadeer",
+    role: "Jury Member",
+    image: "/jury/Abdulkhadeer.jpeg",
+  },
+  {
+    name: "Prakhar Sharan",
+    role: "Jury Member",
+    image: "/jury/prakhar-sharan.jpeg",
+  },
+  {
+    name: "Akanksha Buchke",
+    role: "Jury Member",
+    image: "/jury/akanksha-buchke.JPG",
+  },
+  {
+    name: "Brijesh Kumar Mishra",
+    role: "Jury Member",
+    image: "/jury/brijesh-kumar-mishra.jpeg",
   },
 ];
 
 /**
+ * TabButton
+ * A styled button for tab navigation
+ */
+const TabButton = ({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  children: React.ReactNode;
+}) => {
+  return (
+    <button
+      onClick={onClick}
+      className={cn(
+        "px-6 py-3 rounded-t-lg font-medium transition-all duration-300",
+        active
+          ? "bg-hackathon-dark-blue text-hackathon-light-pink border-b-2 border-hackathon-light-pink"
+          : "bg-hackathon-darker-blue text-hackathon-beige hover:bg-hackathon-dark-blue"
+      )}
+    >
+      {children}
+    </button>
+  );
+};
+
+/**
+ * JuryMemberCard
+ * Component for individual jury member card
+ */
+interface Speaker {
+  name: string;
+  role: string;
+  image: string;
+}
+
+const JuryMemberCard = ({
+  speaker,
+  index,
+  isVisible,
+}: {
+  speaker: Speaker;
+  index: number;
+  isVisible: boolean;
+}) => {
+  return (
+    <FollowerPointerCard
+      title={speaker.name}
+      className={cn(
+        "transition-all duration-300 h-full",
+        isVisible ? "opacity-100" : "opacity-0"
+      )}
+    >
+      <NeonGradientCard
+        neonColors={{
+          firstColor: "#ff77ff",
+          secondColor: "#ff77ff",
+        }}
+        className="h-full"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: index * 0.05 }}
+          className="flex flex-col items-center justify-center h-full"
+        >
+          <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 relative mx-auto mb-4">
+            <Image
+              src={speaker.image}
+              alt={speaker.name}
+              fill
+              sizes="(max-width: 640px) 8rem, (max-width: 768px) 10rem, 12rem"
+              className="rounded-full object-cover border-4 border-hackathon-lavender"
+            />
+          </div>
+          <h3 className="text-xl font-semibold mb-2 text-center text-hackathon-light-pink">
+            {speaker.name}
+          </h3>
+          <p className="text-sm text-center text-hackathon-beige">
+            {speaker.role}
+          </p>
+        </motion.div>
+      </NeonGradientCard>
+    </FollowerPointerCard>
+  );
+};
+
+/**
  * Speakers
- * Renders each speaker card with retro pointer interactions and a neon gradient glow.
+ * Renders speaker cards with tabs for Day 1 and Day 2
  */
 const Speakers = () => {
+  const [activeTab, setActiveTab] = useState("day1");
+  const [isLoaded, setIsLoaded] = useState(true);
+
+  // Pre-render both days' content but only show the active one
   return (
-    <section id="speakers" className="py-20 bg-hackathon-darker-blue">
+    <section
+      id="speakers"
+      className="py-12 sm:py-16 md:py-20 bg-hackathon-darker-blue mr-4 md:mr-0"
+    >
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-4xl font-bold mb-8 text-center text-hackathon-light-pink"
+          className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center text-hackathon-light-pink"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          Galactic Guides
+          Jury Panel
         </motion.h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {speakersData.map((speaker, index) => (
-            <FollowerPointerCard
-              key={index}
-              title={speaker.name}
-              className="transition duration-300" // Additional classes if needed
+
+        {/* Tab Navigation */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex rounded-t-lg overflow-hidden">
+            <TabButton
+              active={activeTab === "day1"}
+              onClick={() => {
+                setActiveTab("day1");
+              }}
             >
-              <NeonGradientCard
-                neonColors={{
-                  firstColor: "#ff77ff",
-                  secondColor: "#ff77ff",
-                }}
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Image
-                    src={speaker.image || "/placeholder.svg"}
-                    alt={speaker.name}
-                    width={200}
-                    height={200}
-                    className="rounded-full mx-auto mb-4 border-4 border-hackathon-lavender"
-                  />
-                  <h3 className="text-xl font-semibold mb-2 text-hackathon-light-pink">
-                    {speaker.name}
-                  </h3>
-                  <p className="text-sm text-hackathon-beige">
-                    {speaker.role}
-                  </p>
-                </motion.div>
-              </NeonGradientCard>
-            </FollowerPointerCard>
-          ))}
+              Day 1
+            </TabButton>
+            <TabButton
+              active={activeTab === "day2"}
+              onClick={() => {
+                setActiveTab("day2");
+              }}
+            >
+              Day 2
+            </TabButton>
+          </div>
+        </div>
+
+        {/* Both Day 1 and Day 2 jury members are rendered but only the active one is visible */}
+        <div className="relative">
+          {/* Day 1 Members */}
+          <div
+            className={cn(
+              "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 transition-opacity duration-200",
+              activeTab === "day1"
+                ? "opacity-100 visible"
+                : "opacity-0 invisible absolute inset-0"
+            )}
+          >
+            {day1Members.map((speaker, index) => (
+              <JuryMemberCard
+                key={`day1-${index}`}
+                speaker={speaker}
+                index={index}
+                isVisible={activeTab === "day1"}
+              />
+            ))}
+          </div>
+
+          {/* Day 2 Members */}
+          <div
+            className={cn(
+              "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 transition-opacity duration-200",
+              activeTab === "day2"
+                ? "opacity-100 visible"
+                : "opacity-0 invisible absolute inset-0"
+            )}
+          >
+            {day2Members.map((speaker, index) => (
+              <JuryMemberCard
+                key={`day2-${index}`}
+                speaker={speaker}
+                index={index}
+                isVisible={activeTab === "day2"}
+              />
+            ))}
+          </div>
         </div>
       </div>
+      <style jsx>{`
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          justify-content: center;
+        }
+      `}</style>
     </section>
   );
 };
