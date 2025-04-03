@@ -339,7 +339,7 @@ const JuryMemberCard = ({
  */
 const Speakers = () => {
   const [activeTab, setActiveTab] = useState("day1");
-  const [isLoaded, setIsLoaded] = useState(true);
+  // const [isLoaded, setIsLoaded] = useState(true);
 
   // Pre-render both days' content but only show the active one
   return (
