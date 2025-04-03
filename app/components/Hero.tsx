@@ -449,8 +449,9 @@ const Hero: React.FC = () => {
 
         {/* Blinking Notification for PPT Submission Date Update */}
         {/* Blinking Notification for PPT Submission Date Update - Enhanced for attention */}
+        {/* Blinking Notification for PPT Submission Date Update - Enhanced for attention with responsive design */}
         <motion.div
-          className="mt-4 px-6 py-3 bg-hackathon-purple rounded-lg border-2 border-hackathon-light-pink shadow-lg"
+          className="mt-4 px-4 sm:px-6 py-2 sm:py-3 bg-hackathon-purple rounded-lg border-2 border-hackathon-light-pink shadow-lg"
           animate={{
             opacity: [1, 0.6, 1],
             scale: [1, 1.05, 1],
@@ -469,14 +470,18 @@ const Hero: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-hackathon-light-pink font-jetbrains font-bold flex items-center justify-center">
-            <span className="inline-block mr-2 text-2xl animate-pulse">⚠️</span>
-            <span className="text-hackathon-beige uppercase mr-2">
+          <p className="text-hackathon-light-pink font-jetbrains font-bold flex flex-col sm:flex-row items-center justify-center text-center sm:text-left">
+            <span className="inline-block mb-1 sm:mb-0 sm:mr-2 text-xl sm:text-2xl animate-pulse">
+              ⚠️
+            </span>
+            <span className="text-hackathon-beige uppercase mb-1 sm:mb-0 sm:mr-2 text-sm sm:text-base">
               IMPORTANT:
             </span>
-            Last date to submit PPT has been extended to
-            <span className="text-hackathon-lavender ml-2 font-extrabold underline">
-              8th April
+            <span className="text-xs sm:text-base">
+              Last date to submit PPT has been extended to
+              <span className="text-hackathon-lavender ml-1 sm:ml-2 font-extrabold underline">
+                8th April
+              </span>
             </span>
           </p>
         </motion.div>
