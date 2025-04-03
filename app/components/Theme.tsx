@@ -108,7 +108,7 @@ const Theme = () => {
         duration: 2,
         ease: "easeInOut",
         repeat: Infinity,
-        repeatType: "loop" as "loop",
+        repeatType: "loop",
       },
     },
   };
