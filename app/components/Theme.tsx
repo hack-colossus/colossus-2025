@@ -98,20 +98,7 @@ const Theme = () => {
   };
 
   // Download button pulse effect
-  const pulseBorder = {
-    animate: {
-      boxShadow: [
-        "0 0 0 0 rgba(154, 130, 236, 0.7)",
-        "0 0 0 10px rgba(154, 130, 236, 0)",
-      ],
-      transition: {
-        duration: 2,
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatType: "loop",
-      },
-    },
-  };
+  
 
   // Updated theme data based on the image plus Open Innovation
   const themes = [
@@ -350,12 +337,7 @@ const Theme = () => {
             whileHover="hover"
             whileTap="tap"
           >
-            {/* Animated border effect */}
-            <motion.span
-              className="absolute inset-0 rounded-lg pointer-events-none"
-              variants={pulseBorder}
-              animate="animate"
-            />
+            
 
             {/* Download icon */}
             <motion.svg
