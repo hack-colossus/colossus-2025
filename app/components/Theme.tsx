@@ -97,9 +97,6 @@ const Theme = () => {
     tap: { scale: 0.95 },
   };
 
-  // Download button pulse effect
-  
-
   // Updated theme data based on the image plus Open Innovation
   const themes = [
     {
@@ -233,7 +230,7 @@ const Theme = () => {
   return (
     <section
       id="themes"
-      className="py-20 bg-hackathon-dark-blue relative overflow-hidden mr-5"
+      className="py-20 bg-hackathon-dark-blue relative overflow-hidden"
     >
       {/* Animated background particles */}
       {[...Array(20)].map((_, i) => (
@@ -273,7 +270,7 @@ const Theme = () => {
         >
           {/* Decorative stars */}
           <motion.span
-            className="absolute -left-6 -top-6 text-4xl text-hackathon-lavender"
+            className="absolute -left-6 md:-left-10 -top-6 md:-top-10 text-4xl text-hackathon-lavender"
             variants={floatingAnimation}
             animate="animate"
           >
@@ -281,7 +278,7 @@ const Theme = () => {
           </motion.span>
           Hackathon Tracks
           <motion.span
-            className="absolute -right-6 -top-4 text-2xl text-hackathon-lavender"
+            className="absolute -right-6 md:-right-10 -top-4 md:-top-8 text-2xl text-hackathon-lavender"
             variants={floatingAnimation}
             animate="animate"
           >
@@ -289,11 +286,11 @@ const Theme = () => {
           </motion.span>
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {themes.map((theme, index) => (
             <motion.div
               key={index}
-              className="bg-hackathon-darker-blue p-4 sm:p-6 rounded-lg flex flex-col items-center relative border-2 border-hackathon-beige"
+              className="bg-hackathon-darker-blue p-20 sm:p-6 rounded-lg flex flex-col items-center relative border-2 border-hackathon-beige"
               variants={cardVariants}
               whileHover="hover"
               animate="animate"
@@ -368,8 +365,6 @@ const Theme = () => {
             whileHover="hover"
             whileTap="tap"
           >
-            
-
             {/* Download icon */}
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
