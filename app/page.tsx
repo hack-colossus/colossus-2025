@@ -9,14 +9,14 @@ import RegisterButton from "./components/RegisterButton";
 import Theme from "./components/Theme";
 // import Colosseum from "./components/Colosseum"
 import TechnoExhibition from "./components/TechnoExhibiton";
-// import ShortlistedParticipants from "./components/Shortlisted";
+import ShortlistedParticipants from "./components/Shortlisted";
 export default function Home() {
   return (
     <>
       <Hero />
       <About />
       <Theme />
-      {/* <ShortlistedParticipants /> */}
+      <ShortlistedParticipants />
       <TechnoExhibition />
       <Schedule />
       <Speakers />

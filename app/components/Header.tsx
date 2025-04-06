@@ -48,7 +48,7 @@ const Header = () => {
     "About",
     "Themes",
     "Schedule",
-    // "Shortlisted",
+    "Shortlisted",
     "Speakers",
     // "Sponsors",
     "Previous Hackathon",
