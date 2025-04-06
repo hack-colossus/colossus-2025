@@ -108,7 +108,10 @@ const About = () => {
   const statsInView = useInView(statsContainerRef, { once: true, amount: 0.3 });
 
   return (
-    <section id="about" className="py-10 sm:py-20 bg-[#1a1a2e] overflow-hidden">
+    <section
+      id="about"
+      className="py-10 sm:py-20 bg-[#1a1a2e] overflow-hidden mr-3 md:mr-0"
+    >
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-4xl sm:text-4xl mb-12 text-center font-press-start text-hackathon-lavender"

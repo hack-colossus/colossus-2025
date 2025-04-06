@@ -230,7 +230,7 @@ const Theme = () => {
   return (
     <section
       id="themes"
-      className="py-20 bg-hackathon-dark-blue relative overflow-hidden"
+      className="py-10 sm:py-20 bg-hackathon-dark-blue relative overflow-x-hidden mr-3 md:mr-0"
     >
       {/* Animated background particles */}
       {[...Array(20)].map((_, i) => (
@@ -257,7 +257,7 @@ const Theme = () => {
       ))}
 
       <motion.div
-        className="container mx-auto px-4"
+        className="container mx-auto px-4 w-full max-w-6xl"
         ref={containerRef}
         variants={containerVariants}
         initial="hidden"
@@ -265,12 +265,12 @@ const Theme = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold mb-12 text-center text-hackathon-light-pink uppercase relative font-press-start"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-hackathon-light-pink uppercase relative font-press-start"
           variants={titleVariants}
         >
           {/* Decorative stars */}
           <motion.span
-            className="absolute -left-6 md:-left-10 -top-6 md:-top-10 text-4xl text-hackathon-lavender"
+            className="absolute -left-4 sm:-left-6 md:-left-10 -top-4 sm:-top-6 md:-top-10 text-2xl sm:text-4xl text-hackathon-lavender"
             variants={floatingAnimation}
             animate="animate"
           >
@@ -278,7 +278,7 @@ const Theme = () => {
           </motion.span>
           Hackathon Tracks
           <motion.span
-            className="absolute -right-6 md:-right-10 -top-4 md:-top-8 text-2xl text-hackathon-lavender"
+            className="absolute -right-4 sm:-right-6 md:-right-10 -top-2 sm:-top-4 md:-top-8 text-xl sm:text-2xl text-hackathon-lavender"
             variants={floatingAnimation}
             animate="animate"
           >
@@ -286,11 +286,11 @@ const Theme = () => {
           </motion.span>
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {themes.map((theme, index) => (
             <motion.div
               key={index}
-              className="bg-hackathon-darker-blue p-20 sm:p-6 rounded-lg flex flex-col items-center relative border-2 border-hackathon-beige"
+              className="bg-hackathon-darker-blue p-4 sm:p-6 rounded-lg flex flex-col items-center relative border-2 border-hackathon-beige"
               variants={cardVariants}
               whileHover="hover"
               animate="animate"
@@ -304,7 +304,7 @@ const Theme = () => {
               />
 
               <motion.div
-                className="w-16 h-16 mb-4 flex items-center justify-center"
+                className="w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4 flex items-center justify-center"
                 animate={{ rotate: [0, 5, 0, -5, 0] }}
                 transition={{
                   duration: 5,
@@ -316,7 +316,7 @@ const Theme = () => {
               </motion.div>
 
               <motion.h3
-                className="text-xl font-bold mb-4 text-hackathon-lavender font-press-start text-center"
+                className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-hackathon-lavender font-press-start text-center break-words hyphens-auto"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
@@ -325,7 +325,7 @@ const Theme = () => {
               </motion.h3>
 
               <motion.p
-                className="text-hackathon-beige text-center font-jetbrains text-base"
+                className="text-hackathon-beige text-center font-jetbrains text-sm sm:text-base"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
@@ -334,7 +334,7 @@ const Theme = () => {
               </motion.p>
 
               <motion.div
-                className="w-full h-1 bg-gradient-to-r from-transparent via-hackathon-lavender to-transparent mt-4 rounded-full"
+                className="w-full h-1 bg-gradient-to-r from-transparent via-hackathon-lavender to-transparent mt-3 sm:mt-4 rounded-full"
                 initial={{ scaleX: 0, opacity: 0 }}
                 animate={{ scaleX: 1, opacity: 0.7 }}
                 transition={{ delay: 0.7 + index * 0.1, duration: 0.8 }}
@@ -345,7 +345,7 @@ const Theme = () => {
 
         {/* Download Button Section */}
         <motion.div
-          className="flex justify-center mt-16"
+          className="flex justify-center mt-10 sm:mt-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -359,7 +359,7 @@ const Theme = () => {
             href="https://www.canva.com/design/DAGhsgbUEbE/ntmnhZJCQS2fZ8XQp4cYeA/edit"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center px-8 py-4 bg-hackathon-darker-blue text-hackathon-light-pink border-2 border-hackathon-lavender rounded-lg font-press-start text-lg relative overflow-hidden group"
+            className="flex items-center justify-center px-4 sm:px-8 py-3 sm:py-4 bg-hackathon-darker-blue text-hackathon-light-pink border-2 border-hackathon-lavender rounded-lg font-press-start text-sm sm:text-lg relative overflow-hidden group"
             variants={buttonVariants}
             initial="initial"
             whileHover="hover"
@@ -368,8 +368,8 @@ const Theme = () => {
             {/* Download icon */}
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -386,7 +386,9 @@ const Theme = () => {
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </motion.svg>
 
-            <span className="relative z-10">DOWNLOAD REFERENCE PPT</span>
+            <span className="relative z-10 text-xs sm:text-base">
+              DOWNLOAD REFERENCE PPT
+            </span>
 
             {/* Background glow effect on hover */}
             <motion.div
