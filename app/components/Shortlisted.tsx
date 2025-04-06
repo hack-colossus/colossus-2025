@@ -4,8 +4,8 @@ import React, { useRef, memo, JSX } from "react";
 
 // Define type for team tracks
 type TrackType =
-  | "education"
-  | "agriculture"
+  | "eduTech"
+  | "agriTech"
   | "fintech"
   | "sustainability"
   | "healthcare";
@@ -13,7 +13,7 @@ type TrackType =
 // Memoize SVG icons to prevent unnecessary re-renders
 const TeamIcon = memo(({ type }: { type: string }) => {
   const icons: Record<TrackType, JSX.Element> = {
-    education: (
+    eduTech: (
       <svg
         viewBox="0 0 24 24"
         className="w-8 h-8 md:w-10 md:h-10 text-hackathon-light-pink"
@@ -27,7 +27,7 @@ const TeamIcon = memo(({ type }: { type: string }) => {
         />
       </svg>
     ),
-    agriculture: (
+    agriTech: (
       <svg
         viewBox="0 0 24 24"
         className="w-8 h-8 md:w-12 md:h-12 text-hackathon-light-pink"
