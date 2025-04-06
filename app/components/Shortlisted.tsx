@@ -1,6 +1,6 @@
 "use client";
 import { motion, Variants } from "framer-motion";
-import { useRef, memo } from "react";
+import React, { useRef, memo, JSX } from "react";
 
 // Define type for team tracks
 type TrackType =
