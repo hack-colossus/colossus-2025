@@ -664,10 +664,17 @@ const day2Members = [
     //   "Product Manager with a passion for innovation in the tech space.",
   },
   {
-    name: "Abdulkhadeer Shirahatti",
+    name: "Ascharya Soni",
     role: "Jury Member",
-    image: "/jury/Abdulkhadeer.jpeg",
-    linkedIn: "https://www.linkedin.com/in/abdulkhadeer-shirahatti-399a7abb/",
+    image: "/jury/Ascharya Soni.jpeg",
+    linkedIn: "https://www.linkedin.com/in/ascharya/",
+    // description: "Backend Developer and passionate about system design.",
+  },
+  {
+    name: "Hardik Arora",
+    role: "Jury Member",
+    image: "/jury/Hardik Arora.jpeg",
+    linkedIn: "https://www.linkedin.com/in/hardika2311/",
     // description: "Backend Developer and passionate about system design.",
   },
   {
