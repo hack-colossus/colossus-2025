@@ -55,8 +55,6 @@ const Header = () => {
     "FAQ",
   ];
 
-  
-
   // Logo animation variants with letter animation
   const logoVariants = {
     hover: {
@@ -195,206 +193,210 @@ const Header = () => {
         animate={["animate", isScrolled ? "scrolled" : ""]}
         variants={headerVariants}
       >
-        <nav className="container mx-auto px-4 py-6 flex justify-between items-center">
-          <motion.div
-            whileHover="hover"
-            variants={logoVariants}
-            className="relative"
-          >
-            <Link
-              href="/"
-              className="text-md font-press-start text-hackathon-light-pink relative z-10 tracking-wider"
-            >
-              {Array.from("Colossus 2025").map((letter, i) => (
-                <motion.span
-                  key={i}
-                  custom={i}
-                  variants={letterVariants}
-                  className="inline-block"
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </Link>
+        <div className="container mx-auto px-4 py-6">
+          <nav className="flex items-center justify-between">
+            {/* Logo Container with fixed width and alignment */}
             <motion.div
-              className="absolute -inset-2 bg-gradient-to-r from-hackathon-dark-blue via-hackathon-light-pink to-hackathon-lavender rounded-lg opacity-30 blur-md"
-              animate={{
-                opacity: [0.2, 0.3, 0.2],
-                scale: [0.9, 1.01, 0.9],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "mirror",
-              }}
-            />
-          </motion.div>
-
-          {/* Desktop Navigation */}
-          <motion.ul
-            className="hidden md:flex space-x-8"
-            variants={navContainerVariants}
-            whileHover="hover"
-          >
-            {navItems.map((item) => (
-              <motion.li
-                key={item}
-                onHoverStart={() => setHoveredItem(item)}
-                onHoverEnd={() => setHoveredItem(null)}
-                variants={itemVariants}
-                whileHover="hover"
-              >
-                <Link
-                  href="/"
-                  className="text-lg font-jetbrains text-hackathon-beige hover:text-hackathon-lavender transition-colors duration-300 relative"
-                  onClick={(e) => {
-                    e.preventDefault(); // Prevent default behavior
-                    if (typeof window !== "undefined") {
-                      sessionStorage.setItem(
-                        "scrollToSection",
-                        item.toLowerCase()
-                      );
-                      window.location.href = "/"; // Navigate without useRouter
-                    }
-                  }}
-                >
-                  {item}
-                  <motion.span
-                    className="absolute -bottom-1 left-0 h-0.5 bg-hackathon-light-pink"
-                    animate={{
-                      width: hoveredItem === item ? "100%" : "0%",
-                    }}
-                    initial={{ width: "0%" }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  />
-                  <AnimatePresence>
-                    {hoveredItem === item && (
-                      <motion.span
-                        className="absolute -inset-1 bg-hackathon-lavender/10 rounded-md -z-10"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.2 }}
-                      />
-                    )}
-                  </AnimatePresence>
-                </Link>
-              </motion.li>
-            ))}
-          </motion.ul>
-
-          {/* Mobile Hamburger Menu Button */}
-          <motion.div className="md:hidden " whileTap={{ scale: 0.9 }}>
-            <motion.button
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              className="relative"
+              whileHover="hover"
+              variants={logoVariants}
+              className="relative flex items-center"
             >
-              <AnimatePresence mode="wait">
-                {menuOpen ? (
-                  // X icon for closing menu
-                  <motion.svg
-                    key="close"
-                    className="w-8 h-8 text-hackathon-light-pink"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    initial={{ rotate: 0, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+              <Link
+                href="/"
+                className="text-md font-press-start text-hackathon-light-pink relative z-10 tracking-wider"
+              >
+                {Array.from("Colossus 2025").map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    custom={i}
+                    variants={letterVariants}
+                    className="inline-block"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </motion.svg>
-                ) : (
-                  // Hamburger icon for opening menu
-                  <motion.svg
-                    key="menu"
-                    className="w-8 h-8 text-hackathon-light-pink"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    whileHover={{
-                      scale: 1.05,
-                      transition: {
-                        yoyo: Infinity,
-                        duration: 0.3,
-                      },
-                    }}
-                  >
-                    <motion.path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16"
-                      animate={{ y: [0, -1, 0] }}
-                      transition={{
-                        delay: 0,
-                        duration: 1,
-                        repeat: Infinity,
-                        repeatDelay: 0.5,
-                      }}
-                    />
-                    <motion.path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 12h16"
-                      animate={{ y: [0, 1, 0] }}
-                      transition={{
-                        delay: 0.2,
-                        duration: 1,
-                        repeat: Infinity,
-                        repeatDelay: 0.5,
-                      }}
-                    />
-                    <motion.path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 18h16"
-                      animate={{ y: [0, -1, 0] }}
-                      transition={{
-                        delay: 0.4,
-                        duration: 1,
-                        repeat: Infinity,
-                        repeatDelay: 0.5,
-                      }}
-                    />
-                  </motion.svg>
-                )}
-              </AnimatePresence>
-
-              <motion.span
-                className="absolute inset-0 rounded-full bg-hackathon-lavender/20"
+                    {letter}
+                  </motion.span>
+                ))}
+              </Link>
+              <motion.div
+                className="absolute -inset-2 bg-gradient-to-r from-hackathon-dark-blue via-hackathon-light-pink to-hackathon-lavender rounded-lg opacity-30 blur-md"
                 animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.2, 0.4, 0.2],
+                  opacity: [0.2, 0.3, 0.2],
+                  scale: [0.9, 1.01, 0.9],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 3,
                   repeat: Infinity,
+                  repeatType: "mirror",
                 }}
               />
-            </motion.button>
-          </motion.div>
-        </nav>
+            </motion.div>
+
+            {/* Desktop Navigation with fixed width and proper centering */}
+            <motion.ul
+              className="hidden md:flex items-center space-x-6"
+              variants={navContainerVariants}
+              whileHover="hover"
+            >
+              {navItems.map((item) => (
+                <motion.li
+                  key={item}
+                  onHoverStart={() => setHoveredItem(item)}
+                  onHoverEnd={() => setHoveredItem(null)}
+                  variants={itemVariants}
+                  whileHover="hover"
+                  className="text-center"
+                >
+                  <Link
+                    href="/"
+                    className="text-lg font-jetbrains text-hackathon-beige hover:text-hackathon-lavender transition-colors duration-300 relative block"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default behavior
+                      if (typeof window !== "undefined") {
+                        sessionStorage.setItem(
+                          "scrollToSection",
+                          item.toLowerCase()
+                        );
+                        window.location.href = "/"; // Navigate without useRouter
+                      }
+                    }}
+                  >
+                    {item}
+                    <motion.span
+                      className="absolute -bottom-1 left-0 h-0.5 bg-hackathon-light-pink"
+                      animate={{
+                        width: hoveredItem === item ? "100%" : "0%",
+                      }}
+                      initial={{ width: "0%" }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    />
+                    <AnimatePresence>
+                      {hoveredItem === item && (
+                        <motion.span
+                          className="absolute -inset-1 bg-hackathon-lavender/10 rounded-md -z-10"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.9 }}
+                          transition={{ duration: 0.2 }}
+                        />
+                      )}
+                    </AnimatePresence>
+                  </Link>
+                </motion.li>
+              ))}
+            </motion.ul>
+
+            {/* Mobile Hamburger Menu Button with proper alignment */}
+            <motion.div className="md:hidden" whileTap={{ scale: 0.9 }}>
+              <motion.button
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="relative"
+              >
+                <AnimatePresence mode="wait">
+                  {menuOpen ? (
+                    // X icon for closing menu
+                    <motion.svg
+                      key="close"
+                      className="w-8 h-8 text-hackathon-light-pink"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      initial={{ rotate: 0, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </motion.svg>
+                  ) : (
+                    // Hamburger icon for opening menu
+                    <motion.svg
+                      key="menu"
+                      className="w-8 h-8 text-hackathon-light-pink"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      whileHover={{
+                        scale: 1.05,
+                        transition: {
+                          yoyo: Infinity,
+                          duration: 0.3,
+                        },
+                      }}
+                    >
+                      <motion.path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 6h16"
+                        animate={{ y: [0, -1, 0] }}
+                        transition={{
+                          delay: 0,
+                          duration: 1,
+                          repeat: Infinity,
+                          repeatDelay: 0.5,
+                        }}
+                      />
+                      <motion.path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 12h16"
+                        animate={{ y: [0, 1, 0] }}
+                        transition={{
+                          delay: 0.2,
+                          duration: 1,
+                          repeat: Infinity,
+                          repeatDelay: 0.5,
+                        }}
+                      />
+                      <motion.path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 18h16"
+                        animate={{ y: [0, -1, 0] }}
+                        transition={{
+                          delay: 0.4,
+                          duration: 1,
+                          repeat: Infinity,
+                          repeatDelay: 0.5,
+                        }}
+                      />
+                    </motion.svg>
+                  )}
+                </AnimatePresence>
+
+                <motion.span
+                  className="absolute inset-0 rounded-full bg-hackathon-lavender/20"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.2, 0.4, 0.2],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                  }}
+                />
+              </motion.button>
+            </motion.div>
+          </nav>
+        </div>
 
         {/* Mobile Navigation Menu */}
         <AnimatePresence>
           {menuOpen && (
             <motion.div
-              className="md:hidden bg-hackathon-dark-blue/95 backdrop-blur-md overflow-hidden mr-5"
+              className="md:hidden bg-hackathon-dark-blue/95 backdrop-blur-md overflow-hidden"
               initial="closed"
               animate="open"
               exit="closed"
