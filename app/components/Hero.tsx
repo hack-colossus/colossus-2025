@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
   const [isEventPassed, setIsEventPassed] = useState<boolean>(false);
 
   // Target date: April 8, 2025, 12:00 PM
-  const targetDate = useMemo(() => new Date("2025-04-08T12:00:00"), []);
+  const targetDate = useMemo(() => new Date("2025-04-08T23:59:00"), []);
 
   // Update countdown timer
   useEffect(() => {
