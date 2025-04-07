@@ -4,16 +4,30 @@ import React, { useRef, memo, JSX } from "react";
 
 // Define type for team tracks
 type TrackType =
-  | "eduTech"
-  | "agriTech"
+  | "edutech"
+  | "agrictech"
+  | "agritech"
   | "fintech"
   | "sustainability"
-  | "healthTech";
+  | "healthtech"
+  | "robotics"
+  | "robotics/iot";
 
 // Memoize SVG icons to prevent unnecessary re-renders
 const TeamIcon = memo(({ type }: { type: string }) => {
+  // Normalize the track type - convert to lowercase and handle variations
+  const normalizeTrackType = (track: string): TrackType => {
+    const normalized = track.toLowerCase().trim();
+
+    // Handle specific mappings
+    if (normalized === "agrictech") return "agritech";
+    if (normalized === "robotics/iot") return "robotics";
+
+    return normalized as TrackType;
+  };
+
   const icons: Record<TrackType, JSX.Element> = {
-    eduTech: (
+    edutech: (
       <svg
         viewBox="0 0 24 24"
         className="w-8 h-8 md:w-10 md:h-10 text-hackathon-light-pink"
@@ -27,7 +41,21 @@ const TeamIcon = memo(({ type }: { type: string }) => {
         />
       </svg>
     ),
-    agriTech: (
+    agritech: (
+      <svg
+        viewBox="0 0 24 24"
+        className="w-8 h-8 md:w-12 md:h-12 text-hackathon-light-pink"
+      >
+        <motion.path
+          d="M12 2C8.13 2 5 5.13 5 9c0 4.84 7 13 7 13s7-8.16 7-13c0-3.87-3.13-7-7-7z"
+          fill="currentColor"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        />
+      </svg>
+    ),
+    agrictech: (
       <svg
         viewBox="0 0 24 24"
         className="w-8 h-8 md:w-12 md:h-12 text-hackathon-light-pink"
@@ -71,7 +99,7 @@ const TeamIcon = memo(({ type }: { type: string }) => {
         />
       </svg>
     ),
-    healthTech: (
+    healthtech: (
       <svg
         viewBox="0 0 24 24"
         className="w-8 h-8 md:w-12 md:h-12 text-hackathon-light-pink"
@@ -85,10 +113,35 @@ const TeamIcon = memo(({ type }: { type: string }) => {
         />
       </svg>
     ),
+    robotics: (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-hackathon-light-pink">
+        <motion.path
+          d="M9 2H15V4H19C20.11 4 21 4.89 21 6V10C21 11.11 20.11 12 19 12H17V19C17 20.11 16.11 21 15 21H9C7.89 21 7 20.11 7 19V12H5C3.89 12 3 11.11 3 10V6C3 4.89 3.89 4 5 4H9V2M9 6V8H11V6H9M13 6V8H15V6H13M9 10H15V19H9V10Z"
+          fill="currentColor"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        />
+      </svg>
+    ),
+    "robotics/iot": (
+      <svg viewBox="0 0 24 24" className="w-12 h-12 text-hackathon-light-pink">
+        <motion.path
+          d="M9 2H15V4H19C20.11 4 21 4.89 21 6V10C21 11.11 20.11 12 19 12H17V19C17 20.11 16.11 21 15 21H9C7.89 21 7 20.11 7 19V12H5C3.89 12 3 11.11 3 10V6C3 4.89 3.89 4 5 4H9V2M9 6V8H11V6H9M13 6V8H15V6H13M9 10H15V19H9V10Z"
+          fill="currentColor"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        />
+      </svg>
+    ),
   };
 
-  const safeType = type.toLowerCase() as TrackType;
-  return icons[safeType] || icons.eduTech;
+  // Normalize type and get the icon
+  const normalizedType = normalizeTrackType(type);
+
+  // Use the normalized type or fall back to edutech
+  return icons[normalizedType] || icons.edutech;
 });
 
 // Add display name
@@ -292,7 +345,7 @@ const ShortlistedParticipants = () => {
     },
   };
 
-  // Participants data with track type-based mapping for icons
+  // Participants data with corrected track names
   const participants = [
     {
       name: "Team Infinity",
@@ -332,7 +385,7 @@ const ShortlistedParticipants = () => {
     {
       name: "RDX",
       teamLead: "Pavan singh M.B",
-      track: "AgricTech",
+      track: "AgriTech", // Fixed from AgricTech
     },
     {
       name: "Hackohalics",
@@ -342,6 +395,26 @@ const ShortlistedParticipants = () => {
     {
       name: "Trinity",
       teamLead: "Harshitha K S",
+      track: "HealthTech",
+    },
+    {
+      name: "Innov8ors",
+      teamLead: "Vaibhav V Ron ",
+      track: "HealthTech",
+    },
+    {
+      name: "Custom verse",
+      teamLead: "Abhi Balyan",
+      track: "Robotics/IOT",
+    },
+    {
+      name: "CREATOR-X",
+      teamLead: "SHUBHAM JHA",
+      track: "AgriTech",
+    },
+    {
+      name: "Sheroes",
+      teamLead: "Amulya K C",
       track: "HealthTech",
     },
   ];
