@@ -91,7 +91,7 @@ const day1Members = [
   {
     name: "Shashank Srivatsa ",
     role: "Jury Member",
-    image: "/jury/Shashank.png",
+    image: "/jury/Shashank.jpg",
     linkedIn: "https://www.linkedin.com/in/shashank-srivatsa-116460135/",
     description: " MD and Chairman of Codevice Solution Pvt Ltd",
   },
@@ -190,18 +190,21 @@ const JuryMemberCard = ({
           transition={{ duration: 0.3, delay: index * 0.05 }}
           className="flex flex-col items-center justify-center h-full"
         >
-          <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 relative mx-auto mb-4">
+          {/* Modified image container with improved styling */}
+          <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 relative mx-auto mb-4 overflow-hidden rounded-full border-4 border-hackathon-lavender">
             <a
               href={speaker.linkedIn}
               target="_blank"
               rel="noopener noreferrer"
+              className="block w-full h-full"
             >
               <Image
                 src={speaker.image}
                 alt={speaker.name}
                 fill
                 sizes="(max-width: 640px) 8rem, (max-width: 768px) 10rem, 12rem"
-                className="rounded-full object-cover border-4 border-hackathon-lavender"
+                className="object-cover object-center"
+                priority
               />
             </a>
           </div>

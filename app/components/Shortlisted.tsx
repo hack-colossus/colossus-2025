@@ -8,7 +8,7 @@ type TrackType =
   | "agriTech"
   | "fintech"
   | "sustainability"
-  | "healthcare";
+  | "healthTech";
 
 // Memoize SVG icons to prevent unnecessary re-renders
 const TeamIcon = memo(({ type }: { type: string }) => {
@@ -71,7 +71,7 @@ const TeamIcon = memo(({ type }: { type: string }) => {
         />
       </svg>
     ),
-    healthcare: (
+    healthTech: (
       <svg
         viewBox="0 0 24 24"
         className="w-8 h-8 md:w-12 md:h-12 text-hackathon-light-pink"
@@ -88,7 +88,7 @@ const TeamIcon = memo(({ type }: { type: string }) => {
   };
 
   const safeType = type.toLowerCase() as TrackType;
-  return icons[safeType] || icons.education;
+  return icons[safeType] || icons.eduTech;
 });
 
 // Add display name
@@ -297,17 +297,17 @@ const ShortlistedParticipants = () => {
     {
       name: "Team Infinity",
       teamLead: "Shaik Abdul Khadeer",
-      track: "Education",
+      track: "EduTech",
     },
     {
       name: "Unix",
       teamLead: "Yamuna",
-      track: "Education",
+      track: "EduTech",
     },
     {
       name: "VayuRath",
       teamLead: "Keshav Skanda Sai",
-      track: "Agriculture",
+      track: "AgriTech",
     },
     {
       name: "Tech Creators",
@@ -327,12 +327,12 @@ const ShortlistedParticipants = () => {
     {
       name: "Squad Coders",
       teamLead: "Shreya B Yadav",
-      track: "Education",
+      track: "EduTech",
     },
     {
       name: "RDX",
       teamLead: "Pavan singh M.B",
-      track: "Agriculture",
+      track: "AgricTech",
     },
     {
       name: "Hackohalics",
@@ -342,7 +342,7 @@ const ShortlistedParticipants = () => {
     {
       name: "Trinity",
       teamLead: "Harshitha K S",
-      track: "Healthcare",
+      track: "HealthTech",
     },
   ];
 
