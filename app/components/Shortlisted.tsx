@@ -417,6 +417,241 @@ const ShortlistedParticipants = () => {
       teamLead: "Amulya K C",
       track: "HealthTech",
     },
+    {
+      name: "AgriTech Hacker",
+      teamLead: "Bindhushree SM",
+      track: "Sustainability",
+    },
+    {
+      name: "EliteHub",
+      teamLead: "Rishabh Prajapati",
+      track: "Robotics/IOT",
+    },
+    {
+      name: "Codecrew",
+      teamLead: "Vinayakumar Hiremath",
+      track: "Fintech",
+    },
+    {
+      name: "C2Squad",
+      teamLead: "Ajay Rajan A",
+      track: "HealthTech",
+    },
+    {
+      name: "CodeNinjas",
+      teamLead: "Deeksha H S",
+      track: "HealthTech",
+    },
+    {
+      name: "GlitchX",
+      teamLead: "Samiksha Krishnasamy",
+      track: "EduTech",
+    },
+    {
+      name: "Code crusaders",
+      teamLead: "Likhita.B",
+      track: "HealthTech",
+    },
+    {
+      name: "Data pirates",
+      teamLead: "Navya T",
+      track: "Sustainability",
+    },
+    {
+      name: "Custom verse",
+      teamLead: "Abhi Balyan",
+      track: "Robotics/IOT",
+    },
+    {
+      name: "BYTE ME",
+      teamLead: "Akash Madbal",
+      track: "EduTech",
+    },
+    {
+      name: "TEAM RICE",
+      teamLead: "Samarth Shrikrishna Gurlhosur ",
+      track: "EduTech",
+    },
+    {
+      name: "Innovators",
+      teamLead: "Pandurang",
+      track: "Robotics/IOT",
+    },
+    {
+      name: "The Chronicles",
+      teamLead: "Moneesh S",
+      track: "EduTech",
+    },
+    {
+      name: "Code-Crusaders",
+      teamLead: "Yashin Ilahi Mulla",
+      track: "Robotics/IOT",
+    },
+    {
+      name: "VayuRath",
+      teamLead: "Keshav Skanda Sai",
+      track: "AgriTech",
+    },
+    {
+      name: "CocoCoders",
+      teamLead: "Rohan Jaiswal",
+      track: "HealthTech",
+    },
+    {
+      name: "CryptoBulls",
+      teamLead: "Devesh Mamadapur",
+      track: "Fintech",
+    },
+    {
+      name: "The Optimizers",
+      teamLead: "Md Asif Ali",
+      track: "EduTech",
+    },
+    {
+      name: "Innovative thinkers",
+      teamLead: "Raghavendra.V",
+      track: "AgriTech",
+    },
+    {
+      name: "AIagnostic",
+      teamLead: "Bhavana Ramakrishna",
+      track: "HealthTech",
+    },
+    {
+      name: "Team Elevate",
+      teamLead: "Vaibhav S",
+      track: "Robotics/IOT",
+    },
+    {
+      name: "Syntax Squad",
+      teamLead: "Sai Kishan S",
+      track: "Robotics/IOT",
+    },
+    {
+      name: "Team_MLFS",
+      teamLead: "Lohith R Gowda",
+      track: "HealthTech",
+    },
+    {
+      name: "Techno Tribe",
+      teamLead: "Srujan S",
+      track: "HealthTech",
+    },
+    {
+      name: "Papz",
+      teamLead: "Sameer S Katte",
+      track: "HealthTech",
+    },
+    {
+      name: "Revolutionary Hackers",
+      teamLead: "Rakesh",
+      track: "Robotics/IOT",
+    },
+    {
+      name: "Simple_Engineers",
+      teamLead: "Yuvaraj K",
+      track: "AgriTech",
+    },
+    {
+      name: "Pixelated",
+      teamLead: "Anvitha Anant Rao",
+      track: "HealthTech",
+    },
+    {
+      name: "The Calm hustlers",
+      teamLead: "Nidhi D Gowda",
+      track: "Sustainability",
+    },
+    {
+      name: "HackHers",
+      teamLead: "Supreetha M",
+      track: "Fintech",
+    },
+    {
+      name: "Team Kisan",
+      teamLead: "P Mohan",
+      track: "AgriTech",
+    },
+    {
+      name: "SPAN",
+      teamLead: "M Naveen",
+      track: "Fintech",
+    },
+    {
+      name: "IntoTheVoid",
+      teamLead: "Pratik",
+      track: "Sustainability",
+    },
+    {
+      name: "Bullish Bytes",
+      teamLead: "Anshula C",
+      track: "Fintech",
+    },
+    {
+      name: "Pixel Pirates",
+      teamLead: "Md Danish Ali",
+      track: "AgriTech",
+    },
+    {
+      name: "AIagonstic",
+      teamLead: "Bhavana Ramakrishna",
+      track: "HealthTech",
+    },
+    {
+      name: "Cookie Byte",
+      teamLead: "Ruchitha K R",
+      track: "AgriTech",
+    },
+    {
+      name: "Pillagers",
+      teamLead: "Aditya Holla",
+      track: "Robotics/IOT",
+    },
+    {
+      name: "Ctrl+Alt+Elite",
+      teamLead: "Adit Kadagadakai",
+      track: "EduTech",
+    },
+    {
+      name: "Syntax Squad",
+      teamLead: "Rishika Yashwini",
+      track: "Fintech",
+    },
+    {
+      name: "The Phoenix",
+      teamLead: "Bhanushri Jaisimha",
+      track: "HealthTech",
+    },
+    {
+      name: "F Cube",
+      teamLead: "Rahul Guggilla",
+      track: "Fintech",
+    },
+    {
+      name: "ByteForce",
+      teamLead: "Meet Pandya",
+      track: "Robotics/IOT",
+    },
+    {
+      name: "VANGODS",
+      teamLead: "G Pavan Sai",
+      track: "EduTech",
+    },
+    {
+      name: "Spaghetti Coders",
+      teamLead: "Rishika Nayana Shakthi",
+      track: "Fintech",
+    },
+    {
+      name: "LGTM",
+      teamLead: "Gagan R H",
+      track: "Sustainability",
+    },
+    {
+      name: "CodeStorm",
+      teamLead: "Sameer Singh",
+      track: "HealthTech",
+    },
   ];
 
   return (
