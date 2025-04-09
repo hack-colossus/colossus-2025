@@ -144,7 +144,6 @@ const TeamIcon = memo(({ type }: { type: string }) => {
   return icons[normalizedType] || icons.edutech;
 });
 
-// Add display name
 TeamIcon.displayName = "TeamIcon";
 
 // Memoized background particles component for better performance
@@ -177,10 +176,9 @@ const BackgroundParticles = memo(() => {
   );
 });
 
-// Add display name
 BackgroundParticles.displayName = "BackgroundParticles";
 
-// Define types for team, card props
+// Define types for team and card props
 interface Team {
   name: string;
   teamLead: string;
@@ -266,7 +264,6 @@ const TeamCard = memo(
   }
 );
 
-// Add display name
 TeamCard.displayName = "TeamCard";
 
 const ShortlistedParticipants = () => {
@@ -385,7 +382,7 @@ const ShortlistedParticipants = () => {
     {
       name: "RDX",
       teamLead: "Pavan singh M.B",
-      track: "AgriTech", // Fixed from AgricTech
+      track: "AgriTech",
     },
     {
       name: "Hackohalics",
@@ -662,9 +659,7 @@ const ShortlistedParticipants = () => {
       {/* Moving Announcement Line */}
       <motion.div
         className="absolute top-0 left-0 right-0 text-center text-xs md:text-lg text-hackathon-light-pink font-press-start uppercase py-1 whitespace-nowrap"
-        animate={{
-          x: ["100%", "-100%"],
-        }}
+        animate={{ x: ["100%", "-100%"] }}
         transition={{
           duration: 15,
           ease: "linear",
@@ -678,13 +673,13 @@ const ShortlistedParticipants = () => {
       {/* Optimized background particles */}
       <BackgroundParticles />
 
+      {/* Changed from whileInView + viewport to animate so animation triggers immediately */}
       <motion.div
         className="container mx-auto"
         ref={containerRef}
         variants={animations.container}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
+        animate="visible"
       >
         <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-hackathon-light-pink uppercase relative font-press-start"
@@ -724,7 +719,6 @@ const ShortlistedParticipants = () => {
   );
 };
 
-// Add display name for main component
 ShortlistedParticipants.displayName = "ShortlistedParticipants";
 
 export default ShortlistedParticipants;
