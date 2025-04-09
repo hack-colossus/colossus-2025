@@ -354,11 +354,7 @@ const ShortlistedParticipants = () => {
       teamLead: "Yamuna",
       track: "EduTech",
     },
-    {
-      name: "VayuRath",
-      teamLead: "Keshav Skanda Sai",
-      track: "AgriTech",
-    },
+
     {
       name: "Tech Creators",
       teamLead: "KATHIRVEL M",
@@ -399,11 +395,7 @@ const ShortlistedParticipants = () => {
       teamLead: "Vaibhav V Ron ",
       track: "HealthTech",
     },
-    {
-      name: "Custom verse",
-      teamLead: "Abhi Balyan",
-      track: "Robotics/IOT",
-    },
+    
     {
       name: "CREATOR-X",
       teamLead: "SHUBHAM JHA",
@@ -492,6 +484,16 @@ const ShortlistedParticipants = () => {
     {
       name: "CocoCoders",
       teamLead: "Rohan Jaiswal",
+      track: "HealthTech",
+    },
+    {
+      name: "FOURCAST",
+      teamLead: "MADHUMITHA N",
+      track: "HealthTech",
+    },
+    {
+      name: "2Builds",
+      teamLead: "Afreen Hossain",
       track: "HealthTech",
     },
     {
@@ -654,22 +656,8 @@ const ShortlistedParticipants = () => {
   return (
     <section
       id="shortlisted"
-      className="py-12 md:py-20 bg-hackathon-dark-blue relative overflow-hidden px-4 md:px-0 md:mr-5"
+      className="py-12 md:py-20 bg-hackathon-dark-blue relative overflow-hidden px-4 md:px-0 md:mr-5 mr-3"
     >
-      {/* Moving Announcement Line */}
-      <motion.div
-        className="absolute top-0 left-0 right-0 text-center text-xs md:text-lg text-hackathon-light-pink font-press-start uppercase py-1 whitespace-nowrap"
-        animate={{ x: ["100%", "-100%"] }}
-        transition={{
-          duration: 15,
-          ease: "linear",
-          repeat: Infinity,
-        }}
-      >
-        This is the first set of results, and we will keep releasing results so
-        stay updated on email and the website
-      </motion.div>
-
       {/* Optimized background particles */}
       <BackgroundParticles />
 

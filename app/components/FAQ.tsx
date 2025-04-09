@@ -175,7 +175,7 @@ const FAQ = () => {
   return (
     <section
       id="faq"
-      className="py-16 sm:py-20 bg-hackathon-darker-blue font-mono"
+      className="py-16 sm:py-20 bg-hackathon-darker-blue font-mono mr-3 md:mr-0"
     >
       <div className="container mx-auto px-4 max-w-3xl">
         <h2 className="text-3xl sm:text-4xl font-press-start text-center mb-6 sm:mb-8 border-b-2 border-hackathon-light-pink pb-2 sm:pb-4 text-hackathon-light-pink">

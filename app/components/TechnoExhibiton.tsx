@@ -110,7 +110,7 @@ const TechnoExhibition = () => {
   ];
 
   return (
-    <section id="techno-exhibition" className="py-20 bg-hackathon-darker-blue relative overflow-hidden">
+    <section id="techno-exhibition" className="py-20 bg-hackathon-darker-blue relative overflow-hidden mr-3 md:mr-0">
       {/* Animated background particles */}
       {[...Array(20)].map((_, i) => (
         <motion.div
@@ -143,55 +143,55 @@ const TechnoExhibition = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <motion.div className="text-center mb-16" variants={titleVariants}>
+        <motion.div className="text-center mb-12 sm:mb-16" variants={titleVariants}>
           <motion.div
-            className="inline-block relative"
+        className="inline-block relative"
+        variants={floatingAnimation}
+        animate="animate"
+          >
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-hackathon-light-pink uppercase font-press-start relative inline-block">
+          <motion.span
+            className="absolute -left-4 sm:-left-6 -top-4 sm:-top-6 text-3xl sm:text-4xl text-hackathon-lavender"
             variants={floatingAnimation}
             animate="animate"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-hackathon-light-pink uppercase font-press-start relative inline-block">
-              <motion.span
-                className="absolute -left-6 -top-6 text-4xl text-hackathon-lavender"
-                variants={floatingAnimation}
-                animate="animate"
-              >
-                ✦
-              </motion.span>
-              Next Level
-              <motion.span
-                className="absolute -right-6 -top-4 text-2xl text-hackathon-lavender"
-                variants={floatingAnimation}
-                animate="animate"
-              >
-                ✧
-              </motion.span>
-            </h2>
+            ✦
+          </motion.span>
+          Next Level
+          <motion.span
+            className="absolute -right-4 sm:-right-6 -top-3 sm:-top-4 text-xl sm:text-2xl text-hackathon-lavender"
+            variants={floatingAnimation}
+            animate="animate"
+          >
+            ✧
+          </motion.span>
+        </h2>
           </motion.div>
           
           <motion.div 
-            className="mt-4 mb-6"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.5 }}
+        className="mt-3 sm:mt-4 mb-4 sm:mb-6"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.5 }}
           >
-            <motion.h3 
-              className="text-5xl font-bold text-hackathon-lavender font-press-start tracking-tight"
-              variants={pulseAnimation}
-              animate="animate"
-            >
-              9<sup>th</sup> NATIONAL TECHNO-EXHIBITION
-            </motion.h3>
+        <motion.h3 
+          className="text-2xl sm:text-4xl md:text-5xl font-bold text-hackathon-lavender font-press-start tracking-tight"
+          variants={pulseAnimation}
+          animate="animate"
+        >
+          9<sup>th</sup> NATIONAL TECHNO-EXHIBITION
+        </motion.h3>
           </motion.div>
           
           <motion.p 
-            className="text-xl text-hackathon-beige font-jetbrains"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
+        className="text-base sm:text-lg md:text-xl text-hackathon-beige font-jetbrains"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.7 }}
           >
-            <span className="text-hackathon-light-pink font-bold">INSPIRE, ASPIRE & ACHIEVE</span>
-            <br />
-            Sunday, 13<sup>th</sup> April 2025
+        <span className="text-hackathon-light-pink font-bold">INSPIRE, ASPIRE & ACHIEVE</span>
+        <br />
+        Sunday, 13<sup>th</sup> April 2025
           </motion.p>
         </motion.div>
 
