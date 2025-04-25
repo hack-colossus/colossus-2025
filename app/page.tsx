@@ -4,10 +4,10 @@ import Schedule from "./components/Schedule";
 import Speakers from "./components/Speakers"
 // import Sponsors from "./components/Sponsors"
 import PreviousHackathon from "./components/PreviousHackathon";
+import HackathonWinners from "./components/HackathonWinners";
 import FAQ from "./components/FAQ";
 import RegisterButton from "./components/RegisterButton";
 import Theme from "./components/Theme";
-// import Colosseum from "./components/Colosseum"
 import TechnoExhibition from "./components/TechnoExhibiton";
 import ShortlistedParticipants from "./components/Shortlisted";
 export default function Home() {
@@ -15,6 +15,7 @@ export default function Home() {
     <>
       <Hero />
       <About />
+      <HackathonWinners />
       <Theme />
       <ShortlistedParticipants />
       <TechnoExhibition />
